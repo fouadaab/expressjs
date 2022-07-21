@@ -13,7 +13,7 @@ const port = 3000;
 const routes: Array<CommonRoutesConfig> = [];
 const debugLog: debug.IDebugger = debug('app');
 
-// here we are adding middleware to parse all incoming requests as JSON 
+// here we are adding middleware to parse all incoming requests as JSON
 app.use(express.json());
 
 // here we are adding middleware to allow cross-origin requests
