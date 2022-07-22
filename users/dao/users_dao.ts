@@ -1,6 +1,7 @@
 import { CreateUserDto } from '../dto/create_user_dto';
 import { PatchUserDto } from '../dto/patch_user_dto';
 import { PutUserDto } from '../dto/put_user_dto';
+import { PatchableUserFields } from '../utils/enumerators';
 import shortid from 'shortid';
 import debug from 'debug';
 
@@ -50,10 +51,10 @@ class UsersDao {
         );
         let currentUser = this.users[objIndex];
         const allowedPatchFields = [
-            'password',
-            'firstName',
-            'lastName',
-            'permissionLevel',
+            PatchableUserFields.PASSWORD,
+            PatchableUserFields.FIRSTNAME,
+            PatchableUserFields.LASTNAME,
+            PatchableUserFields.PERMISSIONLEVEL,
         ];
         for (let field of allowedPatchFields) {
             if (field in user) {
